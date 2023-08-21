@@ -1,20 +1,25 @@
 <div class="container text-center" class="card" style="width:auto;">
-    <br>
+    <div class="row justify-content-center" *ngIf="visibility">
+        <div class="col-md-6">
+            <div class="spinner-border m-5 text-primary" style="width: 4rem; height: 4rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!visibility">
+        <br>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <p class="display-6 p2">{{weatherData?.location?.name}} , {{weatherData?.location?.country}}</p>
         </div>
     </div>
-    <div *ngIf="weatherData" >
+    
+    <div>
         <div class="row justify-content-center">
-            <div class="col display-2">
+            <div class="col display-2" *ngIf="weatherData">
                 {{temp}} <img src="{{weatherData?.current?.condition?.icon}}" alt="" height="auto" width="10%">
             </div>
-        </div>
-    </div>
-    <div *ngIf="!weatherData" >
-        <div class="row justify-content-center">
-            <div class="col display-2">
+            <div class="col display-2" *ngIf="!weatherData">
                 Location not found <br>
             </div>
         </div>
@@ -40,4 +45,5 @@
         </div>
     </div>
     <br>
+    </div>
 </div>

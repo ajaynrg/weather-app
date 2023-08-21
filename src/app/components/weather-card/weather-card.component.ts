@@ -1,11 +1,12 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { SpinnerService } from './../../services/spinner.service';
+import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-weather-card',
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.css']
 })
-export class WeatherCardComponent{
+export class WeatherCardComponent implements OnInit, OnChanges{
   @Input() weatherData: any;
   condition: any;
   temp: any;
@@ -13,12 +14,21 @@ export class WeatherCardComponent{
   humidity: any;
   pressure: any;
   isFchecked: any;
+  visibility: any = false;
+
+  constructor(public spinnerService :SpinnerService){}
+
+  ngOnInit(){
+    
+  }
 
   ngOnChanges(){
     this.temp = this.weatherData?.current?.temp_c + ' ºC';
     this.wind = this.weatherData?.current?.wind_kph;
     this.humidity = this.weatherData?.current?.humidity;
     this.pressure = this.weatherData?.current?.pressure_mb;
+    this.visibility = this.spinnerService.visibility.value;
+    console.log('visibility = ', this.visibility);
   }
 
   unitSwitch(){
