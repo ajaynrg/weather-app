@@ -46,6 +46,11 @@ export class MainUiComponent implements AfterViewInit, OnInit {
 
   getData(e: any) {
     this.spinnerService.show();
+    if(e === null || e === ''){
+      this.spinnerService.hide();
+      this.weatherData = null;
+      return
+    }
     this.weatherData = this.weatherService.getDataByQuery(e).subscribe(
       (res) => {
         this.spinnerService.hide();

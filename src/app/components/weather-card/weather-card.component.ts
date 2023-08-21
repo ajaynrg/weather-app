@@ -23,12 +23,11 @@ export class WeatherCardComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(){
-    this.temp = this.weatherData?.current?.temp_c + ' ºC';
+    this.isFchecked ? this.loadinFarhnheit() : this.loadinCelsius();
     this.wind = this.weatherData?.current?.wind_kph;
     this.humidity = this.weatherData?.current?.humidity;
     this.pressure = this.weatherData?.current?.pressure_mb;
     this.visibility = this.spinnerService.visibility.value;
-    console.log('visibility = ', this.visibility);
   }
 
   unitSwitch(){
