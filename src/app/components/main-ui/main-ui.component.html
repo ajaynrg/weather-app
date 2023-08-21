@@ -1,0 +1,23 @@
+
+<br><br><br><br>
+<div class="container text-center card" style="width:auto;">
+    <div class="row justify-content-center">
+        <div class="col align-self-center">
+            <br>
+            <p class="display-6">
+                Right now in
+                    <input
+                    type="text"
+                    autoSizeInput 
+                    [extraWidth]="30" 
+                    [includeBorders]="false"
+                    value="Inida"
+                    #query>
+                <span *ngIf="message">, it's {{message}}.</span>
+            </p>
+            <br>
+            <app-weather-card [weatherData]="weatherData"></app-weather-card>
+            <br>
+        </div>
+    </div>
+</div>
