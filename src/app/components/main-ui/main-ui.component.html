@@ -16,7 +16,11 @@
                 <span *ngIf="message">, it's {{message}}.</span>
             </p>
             <br>
-            <app-weather-card [weatherData]="weatherData"></app-weather-card>
+            <app-weather-card 
+            [weatherData]="weatherData"
+            [weatherForecast]="weatherForecast"
+            [weatherAlerts]="weatherAlerts"
+            ></app-weather-card>
             <br>
         </div>
     </div>

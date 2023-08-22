@@ -1,8 +1,8 @@
 
-<div class="row justify-content-center grid gap-3 p1">
-    <div class="p-2 g-col-4" style="width: 25rem;" *ngFor="let measures of measuresArray">
+<div class="row justify-content-center grid gap-3">
+    <div class="col-2" style="width: 15rem;background-color: #FBFBFB;" *ngFor="let measures of measuresArray">
         <br>
-        <div >
+        <div class="p1">
             <img [src]="measures.imgUrl" alt="x" width="20%" height="auto"> {{measures.measureValue}}
         </div>
         <p>{{measures.measurement}}</p>

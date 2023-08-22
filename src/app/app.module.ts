@@ -13,9 +13,8 @@ import {AutoSizeInputModule} from 'ngx-autosize-input';
 import { FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from './components/home/home.component';
-import { ForecastComponent } from './components/forecast/forecast.component';
-import { AlertsComponent } from './components/alerts/alerts.component';
 import { MeasuresCardComponent } from './components/weather-card/measures-card/measures-card.component';
+import { ForecastCardComponent } from './components/weather-card/forecast-card/forecast-card.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +22,8 @@ import { MeasuresCardComponent } from './components/weather-card/measures-card/m
     MainUiComponent,
     WeatherCardComponent,
     HomeComponent,
-    ForecastComponent,
-    AlertsComponent,
-    MeasuresCardComponent
+    MeasuresCardComponent,
+    ForecastCardComponent
   ],
   imports: [
     BrowserModule,

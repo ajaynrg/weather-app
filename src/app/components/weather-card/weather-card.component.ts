@@ -8,6 +8,8 @@ import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/cor
 })
 export class WeatherCardComponent implements OnInit, OnChanges{
   @Input() weatherData: any;
+  @Input() weatherAlerts: any;
+  @Input() weatherForecast: any;
   condition: any;
   temp: any;
   wind: any;

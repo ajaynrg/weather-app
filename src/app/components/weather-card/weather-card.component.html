@@ -9,33 +9,46 @@
     <div *ngIf="!visibility">
         <br>
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <p class="display-6 p2">{{weatherData?.location?.name}} , {{weatherData?.location?.country}}</p>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <p class="display-6 p2">{{weatherData?.location?.name}} , {{weatherData?.location?.country}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="col display-1" *ngIf="weatherData">
+                            {{temp}} <img src="{{weatherData?.current?.condition?.icon}}" alt="" height="auto"
+                                width="25%">
+                        </div>
+                        <div class="col display-2" *ngIf="!weatherData">
+                            Location not found <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" [(ngModel)]="  isFchecked" (change)="unitSwitch()"
+                                type="checkbox" id="flexSwitchCheckDefault">
+                            <h5 for="flexSwitchCheckDefault">ºF</h5>
+                        </div>
+                    </div>
+                </div><br>
+
+                <app-forecast-card [forecastday]="weatherForecast.forecastday"></app-forecast-card>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <br>
+                    <app-measures-card [measuresArray]="measuresArray"></app-measures-card>
+                    <br>
+                </div>
             </div>
         </div>
 
         <div>
-            <div class="row justify-content-center">
-                <div class="col display-2" *ngIf="weatherData">
-                    {{temp}} <img src="{{weatherData?.current?.condition?.icon}}" alt="" height="auto" width="10%">
-                </div>
-                <div class="col display-2" *ngIf="!weatherData">
-                    Location not found <br>
-                </div>
-            </div>
         </div>
-        <br>
-        <div class="row justify-content-center">
-            <div class="col-2">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" [(ngModel)]="  isFchecked" (change)="unitSwitch()" type="checkbox"
-                        id="flexSwitchCheckDefault">
-                    <h5 for="flexSwitchCheckDefault">View in ºF</h5>
-                </div>
-            </div>
-        </div>
-        <br>
-        <app-measures-card [measuresArray]="measuresArray"></app-measures-card>
         <br>
     </div>
 </div>
