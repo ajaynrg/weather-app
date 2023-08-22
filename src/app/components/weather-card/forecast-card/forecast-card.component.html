@@ -1,5 +1,5 @@
 <div class="row justify-content-center grid gap-3">
-    <div class="col-3 card mb-3" *ngFor="let forecast of forecastday">
+    <div class="col-3 card mb-3" style="width: 10rem;" *ngFor="let forecast of forecastday">
         <div class="card-header">
             {{forecast.date | date: 'd-MMM'}} 
             <img [src]="forecast?.day?.condition.icon" style="width: 30%;height: auto;" class="rounded-bottom-1" alt="...">
