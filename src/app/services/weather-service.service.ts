@@ -11,7 +11,6 @@ export class WeatherServiceService {
   // current: any;
   // forecastAndAlerts: any;
   // result: any;
-
   constructor(private http: HttpClient) { }
 
   getDataByQuery(q: string){
