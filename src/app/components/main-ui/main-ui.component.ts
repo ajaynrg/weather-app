@@ -15,8 +15,10 @@ import { SpinnerService } from 'src/app/services/spinner.service';
 export class MainUiComponent implements AfterViewInit, OnInit {
   @ViewChild('query', { static: false }) query: ElementRef;
   weatherData: any;
+  weatherForecast: any;
   message: any;
   searchSubject = new Subject<string>();
+  weatherAlerts: any;
 
   constructor(
     private weatherService: WeatherServiceService,
@@ -51,11 +53,26 @@ export class MainUiComponent implements AfterViewInit, OnInit {
       this.weatherData = null;
       return
     }
-    this.weatherData = this.weatherService.getDataByQuery(e).subscribe(
+    // this.weatherData = this.weatherService.getDataByQuery(e).subscribe(
+    //   (res) => {
+    //     this.spinnerService.hide();
+    //     this.weatherData = res;
+    //     this.message = this.weatherData?.current?.condition?.text;
+    //   },
+    //   (err) => {
+    //     this.spinnerService.hide();
+    //     console.error(err.error);
+    //     this.weatherData = null;
+    //   }
+    // );
+    this.weatherData = this.weatherService.getForecastAndAlerts(e).subscribe(
       (res) => {
         this.spinnerService.hide();
         this.weatherData = res;
+        this.weatherForecast = this.weatherData?.forecast;
+        this.weatherAlerts = this.weatherData?.alerts;
         this.message = this.weatherData?.current?.condition?.text;
+        console.log(this.weatherForecast,'\n',this.weatherAlerts);
       },
       (err) => {
         this.spinnerService.hide();

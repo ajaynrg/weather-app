@@ -12,14 +12,20 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {AutoSizeInputModule} from 'ngx-autosize-input';
 import { FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { ForecastComponent } from './components/forecast/forecast.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
+import { MeasuresCardComponent } from './components/weather-card/measures-card/measures-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainUiComponent,
     WeatherCardComponent,
-    NavbarComponent
+    HomeComponent,
+    ForecastComponent,
+    AlertsComponent,
+    MeasuresCardComponent
   ],
   imports: [
     BrowserModule,
