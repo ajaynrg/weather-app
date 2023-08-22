@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WeatherServiceService {
-  baseUrl: string = 'http://api.weatherapi.com/v1';
+  baseUrl: string = 'https://api.weatherapi.com/v1';
   API_KEY: string = 'e89c470c8a344dc7a52140858231808';
   // current: any;
   // forecastAndAlerts: any;
