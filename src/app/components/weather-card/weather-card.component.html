@@ -17,14 +17,7 @@
         <div>
             <div class="row justify-content-center">
                 <div class="col display-2" *ngIf="weatherData">
-                    {{temp}} <img src="{{weatherData?.current?.condition?.icon}}" alt="" height="auto" width="10%"><br>
-                    <div class="col-2">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" [(ngModel)]="  isFchecked" (change)="unitSwitch()" type="checkbox"
-                                id="flexSwitchCheckDefault">
-                            <h5 for="flexSwitchCheckDefault">View in ºF</h5>
-                        </div>
-                    </div>
+                    {{temp}} <img src="{{weatherData?.current?.condition?.icon}}" alt="" height="auto" width="10%">
                 </div>
                 <div class="col display-2" *ngIf="!weatherData">
                     Location not found <br>
@@ -33,7 +26,13 @@
         </div>
         <br>
         <div class="row justify-content-center">
-            
+            <div class="col-2">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" [(ngModel)]="  isFchecked" (change)="unitSwitch()" type="checkbox"
+                        id="flexSwitchCheckDefault">
+                    <h5 for="flexSwitchCheckDefault">View in ºF</h5>
+                </div>
+            </div>
         </div>
         <br>
         <app-measures-card [measuresArray]="measuresArray"></app-measures-card>
